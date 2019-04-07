@@ -8,7 +8,7 @@ import csv
 import time
 
 bing = 'https://www.bing.com/'
-aid = 0
+aid = 1
 class Image:
     def __init__(self,id,img):
         self.id = id
@@ -78,7 +78,7 @@ def extractAll(bs):
     foundImages = []
     limit = 0
     for div in divImage:
-        if limit <= 2:    
+        if limit <= 14:    
             result = getLinkAndImage(div.find('a'))
             foundImages.append(result[0])
             foundLinks.append(result[1])
@@ -95,6 +95,8 @@ driver.get('{}images/search?q={}'.format(bing, querry))
 bs = BeautifulSoup(driver.page_source, 'html.parser')
 images, linkdelas = extractAll(bs)
 linkqebomnada = []
+driver.close()
+driver.quit()
 for listlinks in linkdelas:
     for link in listlinks:
         linkqebomnada.append(link)
