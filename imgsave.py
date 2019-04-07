@@ -97,6 +97,8 @@ images, linkdelas = extractAll(bs)
 linkqebomnada = []
 driver.close()
 driver.quit()
+if os.path.exists('geckodriver.log'):
+    os.remove('geckodriver.log')
 for listlinks in linkdelas:
     for link in listlinks:
         linkqebomnada.append(link)
